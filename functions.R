@@ -76,7 +76,11 @@ make_plot <- function(num_genes, m_samples){
                          high = 'red',
                          midpoint = 0)+
     scale_y_discrete(position="right")+
-    theme_bw()
+    labs(x = "???",
+         y = "Gene Symbol")+
+    theme_bw()+
+    theme(legend.position = "top",
+          legend.title = element_blank())
 }
 
 
