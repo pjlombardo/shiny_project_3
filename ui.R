@@ -6,7 +6,7 @@ ui <- fluidPage(
   ###################################################
   # Inspired by chatGPT "In R Shiny, how can we make the selectInput box bigger for multiple selections"
   # Final results came from google search and looking at tutorials.
-  # url: ...
+  # url: https://stackoverflow.com/questions/37298498/customize-drop-down-width-in-shiny-selectinput
   tags$head(
     tags$style(HTML("
       .selectize-input {
