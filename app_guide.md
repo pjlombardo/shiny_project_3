@@ -22,7 +22,7 @@ The bullets below take the general form:
 
 > Shiny Component  |  **variable_name**  | (inputs required)  | optional: function used
 
-* plotOutput | **heatmp** | ... | ...
+* plotOutput | **heatmap** | () | make_plot(), which requires make_plot_df()
 
 ### Reactive components and Server
 
@@ -33,4 +33,6 @@ The bullets below take the general form:
 
 ### Functions and Set up
 
-> **function_name**  |  (inputs)  | purpose
+> **make_plot_df**  |  ()  | Purpose: creates a plotting data frame based from the raw data.  This did involve quite a bit of normalization computations and data frame reshaping and joining.
+
+> **make_plot** | () | Purpose: Calls the make_plot_df() function to make the apropriate dataframe for plotting, but then houses the ggplot code for creating the heatmap.

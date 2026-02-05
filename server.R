@@ -10,7 +10,7 @@ source('functions.R')
 server <- function(input, output){
   # you will put your interactions here
   output$heatmap <- renderPlot(
-    hist(iris$Sepal.Length)
+    make_plot()
   )
   
 }
