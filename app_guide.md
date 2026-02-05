@@ -1,6 +1,8 @@
 # Quick Reference
 
-This serves as a quick reference for the Shiny App. It is a collection of bulleted lists to inform the user of important components, variable names, and reactive values, as well as how they interact.
+This Shiny App allows the user to interactively explore a heatmap between genes and mouse samples.  Using a number input, we can include a specified number of the top genes, and using a multiple select input we can select remove mouse samples.  The heatmap will adjust to those values.
+
+This is not my example or my data.  This shiny app was inspired by the [Galaxy Tutorial here](https://training.galaxyproject.org/training-material/topics/transcriptomics/tutorials/rna-seq-viz-with-heatmap2/tutorial.html).  The data for this shiny app is available [here](https://zenodo.org/records/2529926).
 
 [Shiny Gallery for Quick Reference](https://shiny.posit.co/r/gallery/)
 
