@@ -7,21 +7,22 @@ This is not my example or my data.  This shiny app was inspired by the [Galaxy T
 [Shiny Gallery for Quick Reference](https://shiny.posit.co/r/gallery/)
 
 ### Layout description
-Describe the layout or post a link/image of the intended html layout for your app.
+Below a title and description, we will have our control elements (number input and a multiple selection input) across the next column.  Below everything is our heatmap which will update based on our selections and inputs.
 
 ### Inputs
 The bullets below take the general form:
 
 > shiny Component  |  **variable_name** | optional: args
 
-* fill in...
+* numericInput | **num_genes** | value = 5, min = 1, max = 30
+* selectInput | **mouse_samples** | choices... to come
 
 ### Outputs
 The bullets below take the general form:
 
 > Shiny Component  |  **variable_name**  | (inputs required)  | optional: function used
 
-* fill in...
+* plotOutput | **heatmp** | ... | ...
 
 ### Reactive components and Server
 
