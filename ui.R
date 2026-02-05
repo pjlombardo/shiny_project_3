@@ -3,22 +3,25 @@
 source('functions.R')
 
 ui <- fluidPage(
-  ###################################################
-  # Inspired by chatGPT "In R Shiny, how can we make the selectInput box bigger for multiple selections"
-  # Final results came from google search and looking at tutorials.
-  # url: https://stackoverflow.com/questions/37298498/customize-drop-down-width-in-shiny-selectinput
+  
+  ##########################################################
+  # Original inspriation from chatGPT "how do you widen the selectInput box on the ui side for Shiny App?"
+  # Final code incorporated syntax from https://forum.posit.co/t/how-to-customize-selectinput-in-shiny-box-height-and-width/36378
   tags$head(
     tags$style(HTML("
-      .selectize-input {
-        height: 100px;      /* taller box */
-        width: 500px;        /* full width */
-        font-size: 15px;
-      }
-    "))
-  ),
-  ################################################
-
+  .selectize-input {
+    width: 500px;
+  }
+"))),
+  ##########################################################
   
+  
+  
+  
+  ###################
+  
+  
+  ###################################################
   # Fill in your details here
   h1("Interactive Heatmap for Mouse RNA sequence data."),
   p(""),
@@ -34,12 +37,13 @@ ui <- fluidPage(
                   "Select which mouse samples to include in the plot.",
                   choices = m_choices,
                   multiple = TRUE,
-                  selected = m_choices)
+                  selected = m_choices,
+                  width = "100%")
     )
   ),
   br(),
   column(12,
-    plotOutput("heatmap"),
+    plotOutput("heatmap", height = "600px"),
     textOutput("test")
   )
   

@@ -1,4 +1,6 @@
 
+library(tidyverse)
+
 genes_df <- read.csv("data/limma-voom_luminalpregnant-luminallactate",
                      sep = "\t")
 norm_counts_df <- read.csv("data/limma-voom_normalised_counts",
@@ -76,8 +78,6 @@ make_plot <- function(num_genes, m_samples){
                          high = 'red',
                          midpoint = 0)+
     scale_y_discrete(position="right")+
-    labs(x = "???",
-         y = "Gene Symbol")+
     theme_bw()+
     theme(legend.position = "top",
           legend.title = element_blank())
