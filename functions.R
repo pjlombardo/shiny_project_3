@@ -4,15 +4,22 @@ genes_df <- read.csv("data/limma-voom_luminalpregnant-luminallactate",
 norm_counts_df <- read.csv("data/limma-voom_normalised_counts",
                            sep = "\t")
 
+
+choice_vals<-names(norm_counts_df %>% select(starts_with("M")))
+m_choices <- list()
+for (i in 1:length(choice_vals)){
+  m_choices[[ choice_vals[i] ]] = choice_vals[i]
+}
+
 # make_plotting_df  make my plotting dataframe
 
-make_plot_df <- function(){
+make_plot_df <- function(num_genes, m_samples){
   # get top ___ genes
   top_genes<-genes_df %>%
     filter(adj.P.Val < 0.01,
            abs(logFC) > 0.58) %>%
     arrange(P.Value)%>%
-    slice(1:20) # the 20 will eventually be interactive.
+    slice(1:num_genes) # the 20 will eventually be interactive.
   
   # join the top genes with the normalised count data
   joined_df <- inner_join(x = top_genes,
@@ -49,14 +56,15 @@ make_plot_df <- function(){
                y = top_genes,
                by = "SYMBOL") %>%
     select(m_stuff:NormCounts, P.Value) %>% 
-    mutate(SYMBOL = fct_reorder(SYMBOL, -P.Value))
+    mutate(SYMBOL = fct_reorder(SYMBOL, -P.Value)) %>%
+    filter(m_stuff %in% m_samples)
   
   return(plot_df)
 }
 
 # make_plot   make my ggplot.
-make_plot <- function(){
-  plot_df<-make_plot_df()
+make_plot <- function(num_genes, m_samples){
+  plot_df<-make_plot_df(num_genes, m_samples)
   
   ggplot(data = plot_df,
          aes(x = m_stuff,

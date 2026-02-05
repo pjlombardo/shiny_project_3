@@ -1,5 +1,6 @@
 # Build your UI page here
 
+source('functions.R')
 
 ui <- fluidPage(
   # Fill in your details here
@@ -15,7 +16,9 @@ ui <- fluidPage(
                    max = 30),
       selectInput("mouse_samples",
                   "Select which mouse samples to include in the plot.",
-                  choices = list("sample 1" = "s1", "sample 2" = "s2"))
+                  choices = m_choices,
+                  multiple = TRUE,
+                  selected = m_choices)
     )
   ),
   br(),
