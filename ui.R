@@ -25,8 +25,7 @@ ui <- fluidPage(
   ),
   br(),
   column(12,
-    plotOutput("heatmap"),
-    textOutput("test")
+    plotOutput("heatmap")
   )
   
   
